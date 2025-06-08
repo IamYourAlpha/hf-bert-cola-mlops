@@ -1,4 +1,3 @@
-
 import pytorch_lightning as pl
 from pytorch_lightning.callbacks import ModelCheckpoint
 from pytorch_lightning.callbacks.early_stopping import EarlyStopping
@@ -26,8 +25,8 @@ def main():
         project="cola-classification",
         name="cola_model",
         log_model=True,
-        save_dir="./wandb_logs"
-    )    
+        save_dir="./wandb_logs",
+    )
 
     trainer = pl.Trainer(
         default_root_dir="logs",

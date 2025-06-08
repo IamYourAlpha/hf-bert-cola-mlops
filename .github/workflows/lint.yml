@@ -27,4 +27,5 @@ jobs:
 
       - name: Run Ruff lint
         run: |
+          poetry run ruff format .
           poetry run ruff check .
