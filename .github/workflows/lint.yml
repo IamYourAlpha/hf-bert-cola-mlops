@@ -23,7 +23,7 @@ jobs:
 
       - name: Install style dependencies only (Ruff)
         run: |
-          poetry install --no-root --only style
+          poetry install --no-root --only dev
 
       - name: Run Ruff lint
         run: |
