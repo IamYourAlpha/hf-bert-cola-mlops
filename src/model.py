@@ -5,11 +5,12 @@ import torch.nn.functional as F
 from transformers import AutoModel
 from sklearn.metrics import accuracy_score
 
+
 class ColaModel(pl.LightningModule):
     def __init__(self, model_name="google/bert_uncased_L-2_H-128_A-2"):
         super().__init__()
         self.save_hyperparameters()
-        
+
         self.model = AutoModel.from_pretrained(model_name)
         self.classifier = nn.Linear(self.model.config.hidden_size, 2)
         self.num_classes = 2  # Binary classification for CoLA
@@ -36,8 +37,7 @@ class ColaModel(pl.LightningModule):
         self.log("val_loss", loss, on_step=True, on_epoch=True)
         self.log("val_acc", val_acc, on_step=True, on_epoch=True)
         # print(f"Validation step {batch_idx}, loss: {loss.item()}, accuracy: {val_acc.item()}")
-        
-        
+
     def configure_optimizers(self):
         optimizer = torch.optim.AdamW(self.parameters(), lr=2e-5)
         return optimizer
