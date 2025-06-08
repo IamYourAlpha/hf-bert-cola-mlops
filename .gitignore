@@ -1,0 +1,6 @@
+command.txt
+src/__pycache__
+src/wandb_logs/
+src/models
+__pycache__/
+
